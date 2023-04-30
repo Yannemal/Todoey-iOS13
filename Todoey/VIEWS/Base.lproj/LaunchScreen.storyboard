@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YNMLStudios logo color cut out.png" translatesAutoresizingMaskIntoConstraints="NO" id="r6L-l2-nGs">
+                                <rect key="frame" x="16" y="163" width="361" height="254"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWJ-jq-e8J">
+                                <rect key="frame" x="16" y="679" width="361" height="133"/>
+                                <string key="text">All rights App (c) London App Brewery.           YNML Studios forked git as part of the complete iOS course on UDEMY by @AngelaYu  30APRIL2023</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-Yp-JEN">
+                                <rect key="frame" x="0.0" y="450" width="393" height="209"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBreweryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Gzs-gK-Xgk">
+                                        <rect key="frame" x="8" y="8" width="377" height="193"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstItem="Gzs-gK-Xgk" firstAttribute="trailing" secondItem="0Ch-Yp-JEN" secondAttribute="trailingMargin" id="1dj-JA-gtk"/>
+                                    <constraint firstItem="Gzs-gK-Xgk" firstAttribute="top" secondItem="0Ch-Yp-JEN" secondAttribute="topMargin" id="Fys-0P-kll"/>
+                                    <constraint firstItem="Gzs-gK-Xgk" firstAttribute="leading" secondItem="0Ch-Yp-JEN" secondAttribute="leadingMargin" id="Zo8-nd-IQM"/>
+                                    <constraint firstItem="Gzs-gK-Xgk" firstAttribute="bottom" secondItem="0Ch-Yp-JEN" secondAttribute="bottomMargin" id="zJ0-lJ-t8g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r6L-l2-nGs" firstAttribute="trailing" secondItem="SWJ-jq-e8J" secondAttribute="trailing" id="10w-j7-Irs"/>
+                            <constraint firstItem="0Ch-Yp-JEN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2hd-eI-xmT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SWJ-jq-e8J" secondAttribute="bottom" constant="6" id="5lF-hn-Di0"/>
+                            <constraint firstItem="0Ch-Yp-JEN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="450" id="Awr-hS-sks"/>
+                            <constraint firstItem="SWJ-jq-e8J" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="EjG-7m-1S0"/>
+                            <constraint firstItem="r6L-l2-nGs" firstAttribute="leading" secondItem="SWJ-jq-e8J" secondAttribute="leading" id="KH4-Cx-TLu"/>
+                            <constraint firstItem="0Ch-Yp-JEN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XTX-yb-ePN"/>
+                            <constraint firstAttribute="bottom" secondItem="0Ch-Yp-JEN" secondAttribute="bottom" constant="193" id="boi-NJ-oTb"/>
+                            <constraint firstItem="0Ch-Yp-JEN" firstAttribute="top" secondItem="r6L-l2-nGs" secondAttribute="bottom" constant="33" id="cm9-ob-l0x"/>
+                            <constraint firstItem="r6L-l2-nGs" firstAttribute="centerX" secondItem="0Ch-Yp-JEN" secondAttribute="centerX" id="dCS-e3-hfq"/>
+                            <constraint firstItem="r6L-l2-nGs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="kIg-qe-xcy"/>
+                            <constraint firstItem="SWJ-jq-e8J" firstAttribute="top" secondItem="0Ch-Yp-JEN" secondAttribute="bottom" constant="20" id="nVS-GI-Wju"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29.770992366412212" y="-3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AppBreweryLogo" width="380" height="118"/>
+        <image name="YNMLStudios logo color cut out.png" width="1560" height="1017"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
