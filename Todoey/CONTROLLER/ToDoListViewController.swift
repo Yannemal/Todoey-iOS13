@@ -11,64 +11,119 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
     
-    // hardcode stuff
-    var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
-
-    let defaults = UserDefaults.standard
-
+    // an Array filled with type Item()
+    var itemArray = [Item]()
+    
+//    let defaults = UserDefaults.standard
+    // set up NSCoder
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in:
+                       .userDomainMask).first?
+                        .appendingPathComponent("Items.plist")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // See if there has been a user defaults saved in the Plist.
-        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
-            itemArray = items
-        }
+        
+        // set up NSCoder
+        
+        // print(dataFilePath)
+        
+        let newItem = Item()
+        newItem.title = "Find Mike"
+        itemArray.append(newItem)
+        print(itemArray[0].title)
+        let newItem2 = Item()
+        newItem.title = "Buy eggos"
+        itemArray.append(newItem2)
+        print(itemArray[0].title)
+        
+        let newItem3 = Item()
+        newItem.title = "Destroy Demorgon"
+        itemArray.append(newItem3 )
+       
+        print(itemArray[0].title)
+//        print(itemArray[1].title)
+//        print(itemArray[2].title)
+        tableView.reloadData()
+        
+       
+//               if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
+//                    itemArray = items
+//         }
     }
-
-// MARK: - TABLEVIEW DATASOURCE
+    
+    // MARK: - TABLEVIEW DATASOURCE METHODS
     
     // Return the number of rows for the table. Copy Paste TableViewDataSource Protocol from apple docs
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
-
+    
     // Provide a cell object for each row.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier , for: indexPath)
-        cell.textLabel?.text = itemArray[indexPath.row]
-    
-           
-       return cell
+        
+        let item  = itemArray[indexPath.row]
+        // cell.textLabel?.text = itemArray[indexPath.row].title
+        cell.textLabel?.text = item.title
+        
+        
+        cell.accessoryType = item.done ? .checkmark :  .none
+//        if item.done == true {
+//            cell.accessoryType = .checkmark
+//        } else {
+//            cell.accessoryType = .none
+//        }
+        
+        return cell
     }
     
     // MARK: - TableView DELEGATE METHODS
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+//        if itemArray[indexPath.row].done == false {
+//            itemArray[indexPath.row].done = true
+//        } else {
+//            itemArray[indexPath.row].done = false
+//        }
+        tableView.reloadData()
         
-        // print(itemArray[indexPath.row])
-        let hasAccesory = tableView.cellForRow(at: indexPath)?.accessoryType
-        if hasAccesory == UITableViewCell.AccessoryType.none {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-
-        }
         tableView.deselectRow(at: indexPath, animated: true)
+        
+  
+        
     }
-
+    
     // MARK: - Add New Items
     
     @IBAction func addItemPressed(_ sender: UIBarItem) {
-
+        
         var textField = UITextField()
         // set up the alert and its action
         let alert = UIAlertController(title: "Add new to do", message: "", preferredStyle: .alert)
         // this action has a handler so a delegate ?
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in // <- Closure!!
             // what will happen once the user clicks Add Item in Alert
-            self.itemArray.append(textField.text ?? "big empty")
+            // create newItem using DataModel class
+            let newItem = Item()
+            newItem.title = textField.text!
             
-            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            self.itemArray.append(newItem)
+            
+            // self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            // create encoder for Plist
+            let encoder = PropertyListEncoder()
+            
+            do {
+                let data = try encoder.encode(self.itemArray)
+                try data.write(to: self.dataFilePath!)
+                
+            } catch {
+                print("error encoding item array,  \(error)")
+            }
+            
             
             self.tableView.reloadData()
             
@@ -77,7 +132,7 @@ class ToDoListViewController: UITableViewController {
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Write new to do"
             textField = alertTextField // extending the scope
-              
+            
         }
         // call and run alert and its action
         alert.addAction(action)
@@ -85,5 +140,6 @@ class ToDoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    
 }
-

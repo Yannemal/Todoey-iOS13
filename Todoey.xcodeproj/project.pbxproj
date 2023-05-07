@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C3C234629FE940000EF971C /* YNMLStudios logo color cut out.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3C234529FE940000EF971C /* YNMLStudios logo color cut out.png */; };
 		7C3C234829FEB51100EF971C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C234729FEB51100EF971C /* Constants.swift */; };
+		7C7EDF0C2A06B4EF002E3181 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7EDF0B2A06B4EF002E3181 /* Item.swift */; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* ToDoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		7C3C234529FE940000EF971C /* YNMLStudios logo color cut out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YNMLStudios logo color cut out.png"; sourceTree = "<group>"; };
 		7C3C234729FEB51100EF971C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7C7EDF0B2A06B4EF002E3181 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EB2BE4F6239524DB00FB933B /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2BE4F9239524DB00FB933B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2BE4FD239524DB00FB933B /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,25 @@
 			path = CONTROLLER;
 			sourceTree = "<group>";
 		};
+		7C7EDF0D2A06B4FF002E3181 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				7C7EDF0B2A06B4EF002E3181 /* Item.swift */,
+			);
+			path = MODEL;
+			sourceTree = "<group>";
+		};
+		7C7EDF0E2A06B5C2002E3181 /* RESOURCES */ = {
+			isa = PBXGroup;
+			children = (
+				EB2BE507239524DC00FB933B /* Info.plist */,
+				7C3C234729FEB51100EF971C /* Constants.swift */,
+				EB2BE502239524DC00FB933B /* Assets.xcassets */,
+				7C3C234529FE940000EF971C /* YNMLStudios logo color cut out.png */,
+			);
+			path = RESOURCES;
+			sourceTree = "<group>";
+		};
 		EB2BE4ED239524DB00FB933B = {
 			isa = PBXGroup;
 			children = (
@@ -76,12 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				EB2BE4F9239524DB00FB933B /* AppDelegate.swift */,
-				7C3C234729FEB51100EF971C /* Constants.swift */,
+				7C7EDF0E2A06B5C2002E3181 /* RESOURCES */,
+				7C7EDF0D2A06B4FF002E3181 /* MODEL */,
 				7C3C234329FE92E600EF971C /* VIEWS */,
 				7C3C234429FE92EE00EF971C /* CONTROLLER */,
-				EB2BE502239524DC00FB933B /* Assets.xcassets */,
-				7C3C234529FE940000EF971C /* YNMLStudios logo color cut out.png */,
-				EB2BE507239524DC00FB933B /* Info.plist */,
 			);
 			path = Todoey;
 			sourceTree = "<group>";
@@ -162,6 +181,7 @@
 				7C3C234829FEB51100EF971C /* Constants.swift in Sources */,
 				EB2BE4FE239524DB00FB933B /* ToDoListViewController.swift in Sources */,
 				EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */,
+				7C7EDF0C2A06B4EF002E3181 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,12 +329,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26ZTB6MRV7;
-				INFOPLIST_FILE = Todoey/Info.plist;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				INFOPLIST_FILE = Todoey/RESOURCES/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YNMLStudios-Todoey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -328,12 +351,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26ZTB6MRV7;
-				INFOPLIST_FILE = Todoey/Info.plist;
+				INFOPLIST_FILE = Todoey/RESOURCES/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YNMLStudios-Todoey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
